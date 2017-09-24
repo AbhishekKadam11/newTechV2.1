@@ -4,7 +4,7 @@
   "Author": "Abhishek.k",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve | node server.js",
+    "start": "node server.js",
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "build": "rimraf dist && ng build",
@@ -93,5 +93,9 @@
     "tslint": "5.4.2",
     "tslint-language-service": "0.9.6",
     "typescript": "2.3.4"
+  },
+  "engines": {
+    "node": "7.7.2",
+    "npm": "5.3.0"
   }
 }
