@@ -15,6 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// import { NgxCarouselModule } from 'ngx-carousel';
+// import 'hammerjs';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
