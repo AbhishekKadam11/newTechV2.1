@@ -7,13 +7,16 @@ import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { CoreModule } from './@core/core.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { UserService } from './pages/login/user.service';
+import { HttpClient } from './app.httpclient';
 
 // import { NgxCarouselModule } from 'ngx-carousel';
 // import 'hammerjs';
@@ -33,6 +36,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+    UserService,
+    {
+      provide: HttpClient,
+      useFactory: (backend: XHRBackend, options: RequestOptions) => {
+        return new HttpClient(backend, options);
+      },
+      deps: [XHRBackend, RequestOptions],
+    }
   ],
 })
 export class AppModule {

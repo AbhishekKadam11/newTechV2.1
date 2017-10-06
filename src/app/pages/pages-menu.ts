@@ -61,6 +61,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
+    title: 'Profile',
+    icon: 'nb-compose',
+    children: [
+      {
+        title: 'Profile',
+        link: 'app/pages/profile/profile.module#ProfileModule',
+      }
+
+    ],
+  },
+  {
     title: 'Components',
     icon: 'nb-gear',
     children: [

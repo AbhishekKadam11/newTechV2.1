@@ -4,7 +4,7 @@
   "Author": "Abhishek.k",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "ng serve",
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "build": "rimraf dist && ng build",
@@ -34,7 +34,7 @@
     "@angular/platform-browser-dynamic": "4.3.2",
     "@angular/router": "4.3.2",
     "@asymmetrik/angular2-leaflet": "2.1.4",
-    "@nebular/auth": "2.0.0-rc.2",
+    "@nebular/auth": "^2.0.0-rc.2",
     "@nebular/theme": "2.0.0-rc.2",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.26",
     "@swimlane/ngx-charts": "5.2.0",
@@ -56,6 +56,7 @@
     "ng2-smart-table": "1.1.0",
     "ng2-tree": "2.0.0-alpha.5",
     "ngx-echarts": "1.2.2",
+    "ngx-uploader": "^4.0.0",
     "normalize.css": "6.0.0",
     "roboto-fontface": "0.8.0",
     "rxjs": "5.4.2",
@@ -64,7 +65,9 @@
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
-    "zone.js": "0.8.16",
+    "zone.js": "0.8.16"
+  },
+  "devDependencies": {
     "@angular/cli": "1.2.6",
     "@angular/compiler-cli": "4.3.2",
     "@angular/language-service": "4.3.2",
@@ -92,9 +95,6 @@
     "tslint": "5.4.2",
     "tslint-language-service": "0.9.6",
     "typescript": "2.3.4"
-  },
-  "devDependencies": {
-
   },
   "engines": {
     "node": "7.7.2",

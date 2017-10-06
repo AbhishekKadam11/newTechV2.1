@@ -19,14 +19,14 @@ const routes: Routes = [
         path: '',
         component: NbLoginComponent,
       },
-      {
-        path: 'login',
-        component: NbLoginComponent,
-      },
-      {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
+      // {
+      //   path: 'login',
+      //   component: NbLoginComponent,
+      // },
+      // {
+      //   path: 'register',
+      //   component: NbRegisterComponent,
+      // },
       {
         path: 'logout',
         component: NbLogoutComponent,
@@ -39,8 +39,17 @@ const routes: Routes = [
         path: 'reset-password',
         component: NbResetPasswordComponent,
       },
+      {
+        path: 'login',
+        loadChildren: 'app/pages/login/login.module#LoginModule',
+      },
+      {
+        path: 'register',
+        loadChildren: 'app/pages/register/register.module#RegisterModule',
+      },
     ],
   },
+
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
