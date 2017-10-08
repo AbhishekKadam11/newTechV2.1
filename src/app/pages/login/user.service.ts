@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
-import { HttpClient  } from '../../app.httpclient';
+//import { HttpClient  } from '../../app.httpclient';
 // import { ActivatedRoute } from '@angular/router';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class UserService {
   public userId: string;
   public basicdata: string;
 
-  constructor(private http: Http, private authtoken: HttpClient) {
+  constructor(private http: Http) {
     this.loggedIn = !!localStorage.getItem('auth_token');
     // this.userId = route.snapshot.params[localStorage.getItem('auth_token')];
   }

@@ -39,12 +39,15 @@ import { HttpClient } from './app.httpclient';
     UserService,
     {
       provide: HttpClient,
-      useFactory: (backend: XHRBackend, options: RequestOptions) => {
-        return new HttpClient(backend, options);
-      },
+      useFactory: authHttpServiceFactory,
       deps: [XHRBackend, RequestOptions],
-    }
+    },
   ],
 })
 export class AppModule {
 }
+
+export function authHttpServiceFactory(backend: XHRBackend, options: RequestOptions) {
+   return new HttpClient(backend, options);
+}
+
