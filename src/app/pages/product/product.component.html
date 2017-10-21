@@ -67,13 +67,11 @@
 
         <image-upload
           [max]="100"
-          <!--[url]="'http://localhost:8080/api/upload'"-->
           [url]="'https://newtechserver.herokuapp.com/api/upload'"
           [buttonCaption]="'Select Images!'"
           [dropBoxMessage]="'Drop your images here!'"
           (uploadFinished)="imageUploaded($event)"
           (removed)="onRemoved($event)"
-          (isPending)="disableSendButton($event)"
         ></image-upload>
       </nb-card-body>
     </nb-card>
