@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {EmailValidator, EqualPasswordsValidator} from '../../@theme/validators';
+//import {EmailValidator, EqualPasswordsValidator} from '../../@theme/validators';
 import {RegisterService} from './register.service';
 import {Router} from '@angular/router';
 
@@ -21,22 +21,22 @@ export class RegisterComponent implements OnInit {
 
   public submitted: boolean = false;
 
-  constructor(fb: FormBuilder, private registerService: RegisterService, private router: Router) {
+  constructor( private registerService: RegisterService, private router: Router) {
 
-    this.form = fb.group({
-      'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-      'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
-      'passwords': fb.group({
-        'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
-        'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
-      }, {validator: EqualPasswordsValidator.validate('password', 'repeatPassword')})
-    });
-
-    this.name = this.form.controls['name'];
-    this.email = this.form.controls['email'];
-    this.passwords = <FormGroup> this.form.controls['passwords'];
-    this.password = this.passwords.controls['password'];
-    this.repeatPassword = this.passwords.controls['repeatPassword'];
+    // this.form = fb.group({
+    //   'name': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+    //   'email': ['', Validators.compose([Validators.required, EmailValidator.validate])],
+    //   'passwords': fb.group({
+    //     'password': ['', Validators.compose([Validators.required, Validators.minLength(4)])],
+    //     'repeatPassword': ['', Validators.compose([Validators.required, Validators.minLength(4)])]
+    //   }, {validator: EqualPasswordsValidator.validate('password', 'repeatPassword')})
+    // });
+    //
+    // this.name = this.form.controls['name'];
+    // this.email = this.form.controls['email'];
+    // this.passwords = <FormGroup> this.form.controls['passwords'];
+    // this.password = this.passwords.controls['password'];
+    // this.repeatPassword = this.passwords.controls['repeatPassword'];
   }
 
   ngOnInit() {
