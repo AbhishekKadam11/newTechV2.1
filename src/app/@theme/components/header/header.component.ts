@@ -19,9 +19,9 @@ export class HeaderComponent implements OnInit {
 
   user: any;
   public logged:boolean = false;
-  private profileName:string;
+  public profileName:string;
   public userId:string;
-  private hidebttn:boolean = false;
+  hidebttn:boolean = false;
   menuClick: EventEmitter<NbMenuService>;
 
   userMenu = [{ title: 'Profile', item: 'profile'  }, { title: 'Log out' , item: 'logout' }];
