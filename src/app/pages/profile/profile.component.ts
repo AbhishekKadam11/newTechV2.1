@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit{
   private cities: Array<any> = [];
   private citylist: Array<any> = [];
   private city: string = '';
-  public profile = {};  // model
+  public profile;  // model
   private savedSuccess: boolean = false;
   private saveUnsuccess: boolean = false;
 

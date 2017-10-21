@@ -18,8 +18,8 @@ export class ProductComponent implements OnInit {
   brand: any[];
   public pathToName: string = 'name';
   productimages: Array<string> = [];
-  private savedSuccess: boolean = false;
-  private saveUnsuccess: boolean = false;
+  savedSuccess: boolean = false;
+  saveUnsuccess: boolean = false;
   dateOptions: INgxMyDpOptions = {
     // other options...
     dateFormat: 'dd-mm-yyyy',
