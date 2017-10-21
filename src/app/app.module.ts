@@ -32,6 +32,7 @@ import { HttpClient } from './app.httpclient';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -67,9 +67,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Profile',
         link: 'app/pages/profile/profile.module#ProfileModule',
-      }
-
+      },
     ],
+  },
+  {
+    title: 'Product',
+    icon: 'nb-grid-a',
+    link: '/pages/product/product.module#ProductModule',
   },
   {
     title: 'Components',

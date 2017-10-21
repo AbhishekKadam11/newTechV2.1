@@ -35,6 +35,9 @@ const routes: Routes = [{
     path: 'profile',
     loadChildren: 'app/pages/profile/profile.module#ProfileModule',
   }, {
+    path: 'product',
+    loadChildren: './product/product.module#ProductModule',
+  }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

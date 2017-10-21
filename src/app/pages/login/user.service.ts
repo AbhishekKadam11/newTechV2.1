@@ -22,8 +22,8 @@ export class UserService {
 
     return this.http
       .post(
-        'https://newtechserver.herokuapp.com/api/authenticate',
-     //   'http://localhost:8080/api/authenticate',
+      //  'https://newtechserver.herokuapp.com/api/authenticate',
+        'http://localhost:8080/api/authenticate',
         JSON.stringify({name: values.email, password: values.password}),
         {headers}
       )
