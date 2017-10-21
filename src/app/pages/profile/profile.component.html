@@ -22,23 +22,23 @@
             <img src="{{ imagePreview }}" *ngIf="imagePreview">
             <img src="{{ defaultPicture }}" *ngIf="!picture && defaultPicture">
 
-            <div class="loading" *ngIf="uploadInProgress">
-              <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
-              </div>
-            </div>
-          </div>
-          <i class="ion-ios-close-outline" (click)="removePicture();" *ngIf="picture && canDelete"></i>
-          <i class="ion-ios-close-outline" (click)="removePicture();" *ngIf="picture && canDelete"></i>
+            <!--<div class="loading" *ngIf="uploadInProgress">-->
+              <!--<div class="spinner">-->
+                <!--<div class="double-bounce1"></div>-->
+                <!--<div class="double-bounce2"></div>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<i class="ion-ios-close-outline" (click)="removePicture();" *ngIf="picture && canDelete"></i>-->
+          <!--<i class="ion-ios-close-outline" (click)="removePicture();" *ngIf="picture && canDelete"></i>-->
 
-          <label class="upload-button">
-            <input type="file" [hidden]="true" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>
-            <button type="button" class="btn btn-outline-primary btn-block">
-              <i class="nb-home"></i>
-              <span>Upload Image</span>
-            </button>
-          </label>
+          <!--<label class="upload-button">-->
+            <!--<input type="file" [hidden]="true" ngFileSelect [options]="options" (uploadOutput)="onUploadOutput($event)" [uploadInput]="uploadInput" multiple>-->
+            <!--<button type="button" class="btn btn-outline-primary btn-block">-->
+              <!--<i class="nb-home"></i>-->
+              <!--<span>Upload Image</span>-->
+            <!--</button>-->
+          <!--</label>-->
         </div>
 
       </nb-card-body>
