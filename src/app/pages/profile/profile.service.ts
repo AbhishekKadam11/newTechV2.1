@@ -9,13 +9,13 @@ export class ProfileService {
   constructor(private http: HttpClient) {
 
   }
-  getcities() {
-    return this.http.get('http://localhost:8080/api/state')
-      .map(res => res.json())
-      .map((res) => {
-        return res;
-      })
-  }
+  // getcities() {
+  //   return this.http.get('http://localhost:8080/api/state')
+  //     .map(res => res.json())
+  //     .map((res) => {
+  //       return res;
+  //     })
+  // }
 
   getProfileData() {
     // return this.http.get('http://localhost:8080/api/userBasicDetails')
