@@ -4,7 +4,7 @@
   "Author": "Abhishek.k",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "build": "rimraf dist && ng build",
@@ -70,9 +70,7 @@
     "tinymce": "4.5.7",
     "typeface-exo": "0.0.22",
     "web-animations-js": "2.2.5",
-    "zone.js": "0.8.16"
-  },
-  "devDependencies": {
+    "zone.js": "0.8.16",
     "@angular/cli": "1.2.6",
     "@angular/compiler-cli": "4.3.2",
     "@angular/language-service": "4.3.2",
@@ -100,6 +98,9 @@
     "tslint": "5.4.2",
     "tslint-language-service": "0.9.6",
     "typescript": "2.3.4"
+  },
+  "devDependencies": {
+
   },
   "engines": {
     "node": "7.7.2",
