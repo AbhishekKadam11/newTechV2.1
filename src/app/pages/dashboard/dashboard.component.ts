@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from './dashboard.service'
 
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -20,14 +20,14 @@ export class DashboardComponent implements OnInit {
   monitor;
   routers;
   motherboard;
-  template: string = `<div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12"> 
-      <img src="http://pa1.narvii.com/5722/2c617cd9674417d272084884b61e4bb7dd5f0b15_hq.gif" /> 
-        </div>`;
+  // template: string = `<div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
+  //     <img src="http://pa1.narvii.com/5722/2c617cd9674417d272084884b61e4bb7dd5f0b15_hq.gif" />
+  //       </div>`;
 
 
-  constructor(private dashboardService: DashboardService, private spinnerService: Ng4LoadingSpinnerService,
+  constructor(private dashboardService: DashboardService,
               private router: Router) {
-    this.spinnerService.show();
+ //   this.spinnerService.show();
     this.dashboardService.dashboardProductList().subscribe((result) => {
       this.dashboardProducts = result;
       this.processor = result['processor'];
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
       this.motherboard = result['motherboard'];
       this.monitor = result['monitor'];
       this.routers = result['router'];
-      this.spinnerService.hide();
+    //  this.spinnerService.hide();
       console.log(result);
     })
   }
@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
   startLoadingSpinner() {
 
 
-    this.spinnerService.show();
+  //  this.spinnerService.show();
     // To test threshold change delay in query string it accepts time in secs
     }
 
