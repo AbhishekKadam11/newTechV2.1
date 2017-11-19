@@ -7,10 +7,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
-  children: [{
+  children: [
+    {
     path: 'dashboard',
     component: DashboardComponent,
-  }, {
+  },
+    {
     path: 'ui-features',
     loadChildren: './ui-features/ui-features.module#UiFeaturesModule',
   }, {
@@ -38,11 +40,16 @@ const routes: Routes = [{
     path: 'product',
     loadChildren: './product/product.module#ProductModule',
   }, {
+    path: 'productdetails/:productId',
+    loadChildren: './productdetails/productdetails.module#ProductDetailsModule',
+  }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   }],
-}];
+},
+ // { path: 'dashboard',  loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule' },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

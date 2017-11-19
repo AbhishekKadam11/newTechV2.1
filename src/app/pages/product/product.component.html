@@ -64,10 +64,16 @@
     <nb-card>
       <nb-card-header>Product Picture</nb-card-header>
       <nb-card-body>
-
         <image-upload
           [max]="100"
-          [url]="'https://newtechserver.herokuapp.com/api/upload'"
+          [url]="'http://localhost:8080/api/upload'"
+          [buttonCaption]="'Select Poster Images!'"
+          (uploadFinished)="posterImageUploaded($event)"
+          (removed)="onRemoved($event)"
+        ></image-upload>
+        <image-upload
+          [max]="100"
+          [url]="'http://localhost:8080/api/upload'"
           [buttonCaption]="'Select Images!'"
           [dropBoxMessage]="'Drop your images here!'"
           (uploadFinished)="imageUploaded($event)"

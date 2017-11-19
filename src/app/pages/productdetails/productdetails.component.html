@@ -1,0 +1,100 @@
+
+<nb-card>
+  <nb-card-header class=""><h3></h3> </nb-card-header>
+  <nb-card-body>
+<div class="row">
+
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <div class="row">
+
+      <div class="mx-auto d-block">
+        <img [src]="image" class="img" >
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="mx-auto d-block">
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <div *ngFor="let slide of productimages;let i = index" class="">
+              <a (click)="showimage(i)">
+                <img [src]="slide"  height="80px" class="mlr10">
+              </a>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <div class="row">
+      <h5 class="text-hint" *ngIf="brand">{{brand}}</h5>
+    </div>
+    <div class="row">
+      <h4>{{title}}</h4>
+    </div>
+    <div class="row">
+      <ngb-rating [(rate)]="starRate" max=5 [readonly]="true">
+        <ng-template let-fill="fill">
+              <span class="star fill text-warning" [class.filled]="fill === 100">
+                <i class="ion-android-star" *ngIf="fill === 100"></i>
+                <i class="ion-android-star-outline" *ngIf="fill !== 100"></i>
+              </span>
+        </ng-template>
+      </ngb-rating>
+
+      <span style="margin: 5px"> customer review</span>
+      <!--<span class="current-rate">{{ starRate }}</span>-->
+    </div>
+    <hr style="margin-left: -15px">
+    <div class="row">
+      <h5>Price:</h5>
+      <h4 class="text-danger lm10"> ₹ {{price}}</h4>
+    </div>
+    <div class="row">
+      <h5>Quantity:</h5>
+      <div class="col-xxxl-2 col-xxl-2 col-lg-2 col-md-2">
+        <div class="input-group input-group-sm">
+          <input type="number" min="0" placeholder="" class="form-control"/>
+        </div>
+      </div>
+      <div class="col-xxxl-3 col-xxl-3 col-lg-3 col-md-3">
+        <div class="input-group input-group-sm">
+          <button title="Add to cart" class="btn btn-hero-info btn-sm"> Add to cart </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt20">
+      <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+        <!--<span class="alert alert-hint ">-->
+          <!--short details-->
+        <!--</span>-->
+        <div [innerHTML]="shortdescription">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class=""><h4>Product information</h4> </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="lm10" [innerHTML]="fulldescription">
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
+
+<nb-card>
+  <nb-card-header class=""><h4>Customer review</h4> </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+    </div>
+  </nb-card-body>
+</nb-card>

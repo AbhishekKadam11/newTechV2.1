@@ -27,6 +27,7 @@ import 'rxjs/add/operator/delay';
       <nb-sidebar class="menu-sidebar"
                    tag="menu-sidebar"
                    responsive
+                   state="{{sidebar.state}}"
                    [right]="sidebar.id === 'right'">
         <!--<nb-sidebar-header>-->
           <!--<a href="https://github.com/akveo/nebular" target="_blank" class="btn btn-hero-success main-btn">-->

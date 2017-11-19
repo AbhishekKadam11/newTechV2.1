@@ -26,22 +26,28 @@ export class StateService {
     },
   ];
 
-  protected sidebars: any = [
+  public sidebars: any = [
     {
       name: 'Left Sidebar',
       icon: 'nb-layout-sidebar-left',
       id: 'left',
-      selected: true,
     },
     {
       name: 'Right Sidebar',
       icon: 'nb-layout-sidebar-right',
       id: 'right',
     },
+    {
+      name: 'Left Sidebar',
+      icon: 'nb-layout-sidebar-left',
+      state: 'collapsed',
+      id: 'left',
+      selected: true,
+    },
   ];
 
   protected layoutState$ = new BehaviorSubject(this.layouts[0]);
-  protected sidebarState$ = new BehaviorSubject(this.sidebars[0]);
+  public sidebarState$ = new BehaviorSubject(this.sidebars[2]);
 
   setLayoutState(state: any): any {
     this.layoutState$.next(state);

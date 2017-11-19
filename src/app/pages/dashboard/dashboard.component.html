@@ -24,7 +24,7 @@
   <!--</div>-->
 <!--</div>-->
 <div class="row">
-  <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
+  <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12" >
     <ngb-carousel>
       <ng-template ngbSlide *ngFor="let slide of slides" [id]="slide.id">
         <img [src]="slide.img.url" width="100%">
@@ -38,20 +38,30 @@
   </div>
 </div>
 
+
+<!--<button (click)="startLoadingSpinner()">Start Loading</button>-->
+
 <div class="row" style="margin-top: 10px">
   <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
     <nb-card>
       <nb-card-header class="color bg-info"><h3>Processor</h3> </nb-card-header>
       <nb-card-body>
-        <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
+        <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12" >
+          <!--<app-spinner [threshold]="1000" [template]="template" [loadingText]="''"  > </app-spinner>-->
+
           <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slide of dashboardProducts['processor']" [id]="slide.id">
-              <div class="col-md-3">
-                <img [src]="slide['image']"  width="180px"  height="200px">
-                <h6>{{slide['data']['title']}} </h6>
-              </div>
-            </ng-template>
-          </ngb-carousel>
+              <ng-template ngbSlide>
+                <div *ngFor="let slide of processor" [id]="slide.id" class="thumbnail">
+                  <a (click)="productDetails(slide['data']['_id'])">
+                  <img [src]="slide['image']" width="180px"  height="200px">
+                  <blockquote class="blockquote">
+                    <p class="mb-0" >{{slide['data']['title']}} </p>
+                  </blockquote>
+                  </a>
+                </div>
+              </ng-template>
+            </ngb-carousel>
+
         </div>
       </nb-card-body>
     </nb-card>
@@ -65,15 +75,15 @@
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
           <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slide of dashboardProducts['motherboard']" [id]="slide.id">
-              <div class="col-md-3">
-              <img [src]="slide['image']"  width="180px"  height="200px">
-              <h6>{{slide['data']['title']}} </h6>
-              </div>
-                <!--<div class="carousel-caption">-->
-              <!--<h5></h5>-->
-              <!--&lt;!&ndash;<p>{{slide.description.detail}}</p>&ndash;&gt;-->
-              <!--</div>-->
+            <ng-template ngbSlide>
+            <div *ngFor="let slide of motherboard" [id]="slide.id" class="thumbnail">
+              <a (click)="productDetails(slide['data']['_id'])">
+                <img [src]="slide['image']"  width="180px"  height="200px">
+                <blockquote class="blockquote">
+                  <p class="mb-0" >{{slide['data']['title']}} </p>
+                </blockquote>
+              </a>
+            </div>
             </ng-template>
           </ngb-carousel>
         </div>
@@ -89,10 +99,14 @@
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
           <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slide of dashboardProducts['graphiccard']" [id]="slide.id">
-              <div class="col-md-3">
-                <img [src]="slide['image']"  width="180px"  height="200px">
-                <h6>{{slide['data']['title']}} </h6>
+            <ng-template ngbSlide >
+              <div *ngFor="let slide of graphiccard" [id]="slide.id" class="thumbnail">
+                <a (click)="productDetails(slide['data']['_id'])">
+                  <img [src]="slide['image']"  width="180px"  height="200px">
+                  <blockquote class="blockquote">
+                    <p class="mb-0" >{{slide['data']['title']}} </p>
+                  </blockquote>
+                </a>
               </div>
             </ng-template>
           </ngb-carousel>
@@ -109,10 +123,14 @@
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
           <ngb-carousel>
-            <ng-template ngbSlide *ngFor="let slide of dashboardProducts['router']" [id]="slide.id">
-              <div class="col-md-3">
-                <img [src]="slide['image']"  width="180px"  height="200px">
-                <h6>{{slide['data']['title']}} </h6>
+            <ng-template ngbSlide>
+              <div *ngFor="let slide of routers" [id]="slide.id" class="thumbnail">
+                <a (click)="productDetails(slide['data']['_id'])">
+                  <img [src]="slide['image']"  width="180px"  height="200px">
+                  <blockquote class="blockquote">
+                    <p class="mb-0" >{{slide['data']['title']}} </p>
+                  </blockquote>
+                </a>
               </div>
             </ng-template>
           </ngb-carousel>

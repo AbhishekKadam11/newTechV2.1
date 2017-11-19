@@ -41,6 +41,10 @@ export class ProductComponent implements OnInit {
     this.productimages.push(image);
   }
 
+  posterImageUploaded(file: FileHolder) {
+    this.product['image'] = file.serverResponse['_body'];
+  }
+
   onRemoved(file: FileHolder) {
     console.log(file);
   }
@@ -57,7 +61,7 @@ export class ProductComponent implements OnInit {
   setProduct() {
 
     if (this.productimages.length !== 0) {
-      this.product['productimgs'] = this.productimages;
+      this.product['productimages'] = this.productimages;
     }
     if (this.product.arrivaldate) {
       this.product['arrivaldate'] = this.product.arrivaldate['jsdate'];
@@ -68,11 +72,13 @@ export class ProductComponent implements OnInit {
     this.productService.newProductAdd(this.product) .subscribe((result) => {
       this.savedSuccess = true;
       setTimeout(() => {
+        console.log(result);
         this.savedSuccess = false;
       }, 3000);
     }, (err) => {
       this.saveUnsuccess = true;
       setTimeout(() => {
+        console.log(err);
         this.saveUnsuccess = false;
       }, 3000);
     });

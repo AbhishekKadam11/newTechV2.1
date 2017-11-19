@@ -1,9 +1,10 @@
-import { Component, EventEmitter , OnInit} from '@angular/core';
+import { Component, EventEmitter , OnInit, ViewEncapsulation } from '@angular/core';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions, UploadStatus } from 'ngx-uploader';
 
 import { ProfileService } from './profile.service'
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'ngx-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
