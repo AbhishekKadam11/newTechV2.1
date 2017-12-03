@@ -4,7 +4,6 @@ import { ProductlistRoutingModule, routedComponents } from './productlist-routin
 import { ProductListService } from './productlist.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 
-// import { MenuComponent } from '../../../app/@theme/layouts/sidebarmenus/sidebarmenus'
 
 @NgModule({
   imports: [
@@ -13,7 +12,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   ],
   declarations: [
     ...routedComponents,
- //   SidebarComponent,
+  //  SidebarComponent,
   ],
   providers: [ProductListService],
 
