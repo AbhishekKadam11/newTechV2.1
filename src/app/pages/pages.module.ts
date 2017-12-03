@@ -11,9 +11,11 @@ import { ThemeModule } from '../@theme/theme.module';
 // import { ProfileComponent } from './profile/profile.component';
 // import { RegisterComponent } from './register/register.component';
 // import { LoginComponent } from '../pages/login/login.component';
+import { SidebarComponent } from '../pages/sidebar/sidebar.component';
 
 const PAGES_COMPONENTS = [
   PagesComponent,
+  SidebarComponent,
 ];
 
 @NgModule({
