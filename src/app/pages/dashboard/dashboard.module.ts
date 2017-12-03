@@ -19,7 +19,11 @@ import { SolarComponent } from './solar/solar.component';
 import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
+
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 // import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+
 
 import { CarouselComponent } from './carousel/carousel.component';
 import { DashboardService } from './dashboard.service'
@@ -28,6 +32,7 @@ import { DashboardService } from './dashboard.service'
   imports: [
     ThemeModule,
     AngularEchartsModule,
+    NgxCarouselModule,
     // Ng4LoadingSpinnerModule,
 
   ],

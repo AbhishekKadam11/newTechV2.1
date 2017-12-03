@@ -43,6 +43,9 @@ const routes: Routes = [{
     path: 'productdetails/:productId',
     loadChildren: './productdetails/productdetails.module#ProductDetailsModule',
   }, {
+    path: 'productlist/:productType',
+    loadChildren: './productlist/productlist.module#ProductlistModule',
+  }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

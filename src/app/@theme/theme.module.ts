@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { SidebarComponent } from '../pages/sidebar/sidebar.component'
+
 import {
   NbActionsModule,
   NbCardModule,
@@ -31,6 +33,7 @@ import {
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
@@ -62,6 +65,9 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+ // SidebarComponent,
+// MenuComponent,
+//  SidebarmenusModule,
 ];
 
 const PIPES = [

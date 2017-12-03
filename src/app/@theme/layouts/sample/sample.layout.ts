@@ -24,18 +24,16 @@ import 'rxjs/add/operator/delay';
         <ngx-header [position]="sidebar.id === 'left' ? 'normal': 'inverse'"></ngx-header>
       </nb-layout-header>
 
-      <nb-sidebar class="menu-sidebar"
-                   tag="menu-sidebar"
-                   responsive
-                   state="{{sidebar.state}}"
-                   [right]="sidebar.id === 'right'">
-        <!--<nb-sidebar-header>-->
-          <!--<a href="https://github.com/akveo/nebular" target="_blank" class="btn btn-hero-success main-btn">-->
-            <!--<i class="ion ion-social-github"></i> <span>Support Us</span>-->
-          <!--</a>-->
-        <!--</nb-sidebar-header>-->
-        <ng-content select="nb-menu"></ng-content>
-      </nb-sidebar>
+      <!--<nb-sidebar class="menu-sidebar"-->
+                   <!--tag="menu-sidebar"-->
+                   <!--responsive-->
+                   <!--state="{{sidebar.state}}"-->
+                   <!--[right]="sidebar.id === 'right'">-->
+        <!--&lt;!&ndash;<nb-sidebar-header>&ndash;&gt;-->
+        <!--&lt;!&ndash;</nb-sidebar-header>&ndash;&gt; -->
+      <!--&lt;!&ndash;<ngx-sidebarmenues></ngx-sidebarmenues>&ndash;&gt;-->
+        <!--<ng-content></ng-content>-->
+      <!--</nb-sidebar>-->
 
       <nb-layout-column class="main-content">
         <ng-content select="router-outlet"></ng-content>

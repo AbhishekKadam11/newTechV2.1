@@ -41,6 +41,50 @@
 
 <!--<button (click)="startLoadingSpinner()">Start Loading</button>-->
 
+
+<div class="row" style="margin-top: 10px">
+  <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
+    <nb-card>
+      <nb-card-header class="color bg-info"><h3>Motherboard</h3> </nb-card-header>
+      <nb-card-body>
+        <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
+          <ngx-carousel
+            [inputs]="carouselTile"
+            (carouselLoad)="carouselTileLoad($event)">
+            <ngx-tile NgxCarouselItem *ngFor="let slide of motherboard">
+              <a (click)="productDetails(slide['data']['_id'])">
+              <img [src]="slide['image']" class="thumbnail mx-auto d-block">
+              <blockquote class="blockquote">
+              <p class="mb-0" >{{slide['data']['title']}} </p>
+              </blockquote>
+              </a>
+            </ngx-tile>
+            <a class="right carousel-control-prev" NgxCarouselPrev role="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon leftRs"></span>
+              <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control-next" NgxCarouselNext role="button">
+              <span aria-hidden="true" class="carousel-control-next-icon rightRs"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </ngx-carousel>
+        </div>
+      </nb-card-body>
+      <nb-card-footer style="padding: 0.5rem">
+        <nb-actions size="medium" fullWidth>
+          <nb-action>
+
+              <i style="font-size: 2rem" class="nb-grid-b-outline"></i>
+            <a href="#/pages/productlist/Motherboard" routerLink="['../pages/productlist', 'Motherboard']"><span>View More</span>
+            </a>
+          </nb-action>
+        </nb-actions>
+      </nb-card-footer>
+    </nb-card>
+
+  </div>
+</div>
+
 <div class="row" style="margin-top: 10px">
   <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
     <nb-card>
@@ -48,68 +92,69 @@
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12" >
           <!--<app-spinner [threshold]="1000" [template]="template" [loadingText]="''"  > </app-spinner>-->
-
-          <ngb-carousel>
-              <ng-template ngbSlide>
-                <div *ngFor="let slide of processor" [id]="slide.id" class="thumbnail">
-                  <a (click)="productDetails(slide['data']['_id'])">
-                  <img [src]="slide['image']" width="180px"  height="200px">
-                  <blockquote class="blockquote">
-                    <p class="mb-0" >{{slide['data']['title']}} </p>
-                  </blockquote>
-                  </a>
-                </div>
-              </ng-template>
-            </ngb-carousel>
-
-        </div>
-      </nb-card-body>
-    </nb-card>
-
-  </div>
-</div>
-<div class="row" style="margin-top: 10px">
-  <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
-    <nb-card>
-      <nb-card-header class="color bg-info"><h3>Motherboard</h3> </nb-card-header>
-      <nb-card-body>
-        <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
-          <ngb-carousel>
-            <ng-template ngbSlide>
-            <div *ngFor="let slide of motherboard" [id]="slide.id" class="thumbnail">
+          <ngx-carousel
+            [inputs]="carouselTile"
+            (carouselLoad)="carouselTileLoad($event)">
+            <ngx-tile NgxCarouselItem *ngFor="let slide of processor">
               <a (click)="productDetails(slide['data']['_id'])">
-                <img [src]="slide['image']"  width="180px"  height="200px">
+                <img [src]="slide['image']" class="thumbnail mx-auto d-block">
                 <blockquote class="blockquote">
                   <p class="mb-0" >{{slide['data']['title']}} </p>
                 </blockquote>
               </a>
-            </div>
-            </ng-template>
-          </ngb-carousel>
+            </ngx-tile>
+            <a class="right carousel-control-prev" NgxCarouselPrev role="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon leftRs"></span>
+              <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control-next" NgxCarouselNext role="button">
+              <span aria-hidden="true" class="carousel-control-next-icon rightRs"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </ngx-carousel>
         </div>
       </nb-card-body>
+      <nb-card-footer style="padding: 0.5rem">
+        <nb-actions size="medium" fullWidth>
+          <nb-action>
+
+            <i style="font-size: 2rem" class="nb-grid-b-outline"></i>
+            <a href="#/pages/productlist/Processor" routerLink="['../pages/productlist', 'Processor']"><span>View More</span>
+            </a>
+          </nb-action>
+        </nb-actions>
+      </nb-card-footer>
     </nb-card>
 
   </div>
 </div>
+
 <div class="row" style="margin-top: 10px">
   <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
     <nb-card>
       <nb-card-header class="color bg-info"><h3>Graphic Card</h3> </nb-card-header>
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
-          <ngb-carousel>
-            <ng-template ngbSlide >
-              <div *ngFor="let slide of graphiccard" [id]="slide.id" class="thumbnail">
-                <a (click)="productDetails(slide['data']['_id'])">
-                  <img [src]="slide['image']"  width="180px"  height="200px">
-                  <blockquote class="blockquote">
-                    <p class="mb-0" >{{slide['data']['title']}} </p>
-                  </blockquote>
-                </a>
-              </div>
-            </ng-template>
-          </ngb-carousel>
+          <ngx-carousel
+            [inputs]="carouselTile"
+            (carouselLoad)="carouselTileLoad($event)">
+            <ngx-tile NgxCarouselItem *ngFor="let slide of graphiccard">
+              <a (click)="productDetails(slide['data']['_id'])">
+                <img [src]="slide['image']" class="thumbnail mx-auto d-block">
+                <blockquote class="blockquote">
+                  <p class="mb-0" >{{slide['data']['title']}} </p>
+                </blockquote>
+              </a>
+            </ngx-tile>
+            <a class="right carousel-control-prev" NgxCarouselPrev role="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon leftRs"></span>
+              <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control-next" NgxCarouselNext role="button">
+              <span aria-hidden="true" class="carousel-control-next-icon rightRs"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </ngx-carousel>
         </div>
       </nb-card-body>
     </nb-card>
@@ -122,18 +167,27 @@
       <nb-card-header class="color bg-info"><h3>Router</h3> </nb-card-header>
       <nb-card-body>
         <div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
-          <ngb-carousel>
-            <ng-template ngbSlide>
-              <div *ngFor="let slide of routers" [id]="slide.id" class="thumbnail">
-                <a (click)="productDetails(slide['data']['_id'])">
-                  <img [src]="slide['image']"  width="180px"  height="200px">
-                  <blockquote class="blockquote">
-                    <p class="mb-0" >{{slide['data']['title']}} </p>
-                  </blockquote>
-                </a>
-              </div>
-            </ng-template>
-          </ngb-carousel>
+          <ngx-carousel
+            [inputs]="carouselTile"
+            (carouselLoad)="carouselTileLoad($event)">
+            <ngx-tile NgxCarouselItem *ngFor="let slide of routers">
+              <a (click)="productDetails(slide['data']['_id'])">
+                <img [src]="slide['image']" class="thumbnail mx-auto d-block">
+                <blockquote class="blockquote">
+                  <p class="mb-0" >{{slide['data']['title']}} </p>
+                </blockquote>
+              </a>
+            </ngx-tile>
+            <a class="right carousel-control-prev" NgxCarouselPrev role="button">
+              <span aria-hidden="true" class="carousel-control-prev-icon leftRs"></span>
+              <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control-next" NgxCarouselNext role="button">
+              <span aria-hidden="true" class="carousel-control-next-icon rightRs"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </ngx-carousel>
+
         </div>
       </nb-card-body>
     </nb-card>

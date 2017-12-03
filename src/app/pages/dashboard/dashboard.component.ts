@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from './dashboard.service'
-
+import { NgxCarousel } from 'ngx-carousel';
 // import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+import { StateService } from '../../../app/@core/data/state.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -24,9 +25,14 @@ export class DashboardComponent implements OnInit {
   //     <img src="http://pa1.narvii.com/5722/2c617cd9674417d272084884b61e4bb7dd5f0b15_hq.gif" />
   //       </div>`;
 
+  public carouselTileItems: Array<any>;
+  public carouselTile: NgxCarousel;
 
   constructor(private dashboardService: DashboardService,
-              private router: Router) {
+              private router: Router, protected stateService: StateService) {
+
+    this.stateService.setSidebarState(this.stateService.sidebars[2]);
+
  //   this.spinnerService.show();
     this.dashboardService.dashboardProductList().subscribe((result) => {
       this.dashboardProducts = result;
@@ -43,6 +49,22 @@ export class DashboardComponent implements OnInit {
   slides: any;
 
   ngOnInit() {
+
+
+
+    this.carouselTile = {
+      grid: {xs: 2, sm: 3, md: 3, lg: 5, all: 0},
+      slide: 2,
+      speed: 400,
+      animation: 'lazy',
+      point: {
+        visible: false,
+      },
+      load: 2,
+      touch: true,
+      easing: 'ease',
+    }
+
     this.slides = [
       {
         id: 'slide-1',
@@ -78,6 +100,16 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  public carouselTileLoad(evt: any) {
+
+    // const len = this.carouselTileItems.length
+    // if (len <= 30) {
+    //   for (let i = len; i < len + 10; i++) {
+    //     this.carouselTileItems.push(i);
+    //   }
+    // }
+
+  }
 
   startLoadingSpinner() {
 

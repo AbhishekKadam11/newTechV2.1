@@ -9,14 +9,14 @@ export class ProductService {
   }
 
   productDropdownData() {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .get(
-         //'http://localhost:8080/api/productDropdownData',
+      //   'http://localhost:8080/api/productDropdownData',
         'https://newtechserver.herokuapp.com/api/productDropdownData',
-        {headers}
+        {headers},
       )
       .map(res => res.json())
       .map((res) => {
@@ -30,15 +30,15 @@ export class ProductService {
   }
 
   productCategory(values) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .post(
-         //'http://localhost:8080/api/productCategory',
+    //     'http://localhost:8080/api/productCategory',
         'https://newtechserver.herokuapp.com/api/productCategory',
         JSON.stringify({data: values}),
-        {headers}
+        {headers},
       )
       .map(res => res.json())
       .map((res) => {
@@ -51,7 +51,7 @@ export class ProductService {
   }
 
   newProductAdd(values) {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
@@ -59,7 +59,7 @@ export class ProductService {
        //  'http://localhost:8080/api/newProduct',
         'https://newtechserver.herokuapp.com/api/newProduct',
         JSON.stringify({data: values}),
-        {headers}
+        {headers},
       )
       .map(res => res.json())
       .map((res) => {

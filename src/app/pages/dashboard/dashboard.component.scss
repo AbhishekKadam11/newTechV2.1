@@ -65,11 +65,16 @@ div > img {
   max-width: 100%;
 }
 
+
 .thumbnail {
-  float:left;
-  width: 180px;
-  height: 260px;
-  margin: 10px;
+  width: 130px !important;
+  height: 160px !important;
+}
+
+.nb-theme-default .blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 50px;
 }
 
 .carousel-control-prev {
@@ -78,5 +83,36 @@ div > img {
 
 .carousel-control-next {
   width: 5%;
+}
+
+//.carousel-inner {
+//  position: relative;
+//  width: auto;
+//  overflow: hidden;
+//}
+
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  //width: 50px;
+  //height: 50px;
+  //box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  //border-radius: 999px;
+  left: 0;
+  display: block;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  //width: 50px;
+  //height: 50px;
+  //box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  //border-radius: 999px;
+  right: 0;
 }
 

@@ -29,7 +29,7 @@ export class ProductdetailsComponent implements OnInit {
               protected stateService: StateService,
               private cdRef: ChangeDetectorRef) {
 
- //   this.stateService.setSidebarState(this.stateService.sidebars[0]);
+    this.stateService.setSidebarState(this.stateService.sidebars[2]);
 
   }
 

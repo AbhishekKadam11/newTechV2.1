@@ -9,14 +9,13 @@ export class ProductDetailsService {
   }
 
   productDescriptionData(pid) {
-    //console.log(pid);
-    let headers = new Headers();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
       .get(
-        // 'http://localhost:8080/api/productDescriptionData/' + pid,
-         'https://newtechserver.herokuapp.com/api/productDropdownData',
+      //   'http://localhost:8080/api/productDescriptionData/' + pid,
+         'https://newtechserver.herokuapp.com/api/productDescriptionData/' + pid,
         {headers},
       )
       .map(res => res.json())
