@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StateService } from '../../../app/@core/data/state.service';
 import { ProductListService} from '../productlist/productlist.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { Observable } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'ngx-productlist',
@@ -10,66 +12,105 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./productlist.component.scss'],
 })
 
-export class ProductlistComponent implements OnInit {
-  // message: string = 'Hola Mundo!';
+export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
+
   title: string;
   productType: string;
   products: any;
   menu: any;
 
   @ViewChild(SidebarComponent) sidebar: SidebarComponent;
+  protected productState$: Subscription;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private productListService: ProductListService,
               private stateService: StateService ) {
     this.stateService.setSidebarState(this.stateService.sidebars[0]);
+
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productType = params['productType'];
     });
-    this.getProductList();
+
+    this.productState$ = this.productListService.notifyObservable$.subscribe((result) => {
+      if (result) {
+        this.getFilteredProductList(result);
+      }
+    });
   }
 
-  getProductList() {
-      this.productListService.productListData(this.productType)
-        .subscribe((result) => {
+  ngAfterViewInit() {
+    this.productState$ = this.productListService.productListData(this.productType)
+      .subscribe((result) => {
+        this.getProductList(result);
+      })
+  }
+
+  getProductList(result) {
           if (result.hasOwnProperty('motherboard')) {
             this.products = result['motherboard'];
             this.title = 'Motherboard';
-            this.sidebar.getmenus(result['motherboard']);
+            let brands = this.getBrandname(result['motherboard']);
+            this.sidebar.getmenus(brands, this.title);
           }
           if (result.hasOwnProperty('processor')) {
             this.products = result['processor'];
             this.title = 'Processor';
+            let brands = this.getBrandname(result['processor']);
+            this.sidebar.getmenus(brands, this.title);
           }
           if (result.hasOwnProperty('graphiccard')) {
             this.products = result['graphiccard'];
             this.title = 'Graphic Card';
+            let brands = this.getBrandname(result['graphiccard']);
+            this.sidebar.getmenus(brands, this.title);
           }
           if (result.hasOwnProperty('router')) {
             this.products = result['router'];
             this.title = 'Router';
+            let brands = this.getBrandname(result['router']);
+            this.sidebar.getmenus(brands, this.title);
           }
-        //  console.log( this.products);
-        })
+        //  console.log(this.products);
   }
+
+  getFilteredProductList(result) {
+    if (result.hasOwnProperty('motherboard')) {
+      this.products = result['motherboard'];
+    }
+    if (result.hasOwnProperty('processor')) {
+      this.products = result['processor'];
+    }
+    if (result.hasOwnProperty('graphiccard')) {
+      this.products = result['graphiccard'];
+    }
+    if (result.hasOwnProperty('motherboard')) {
+      this.products = result['motherboard'];
+    }
+    if (result.hasOwnProperty('router')) {
+      this.products = result['router'];
+    }
+  }
+
   productDetails(productId) {
-
     this.router.navigate(['/pages/productdetails', productId ]);
-    //  this.router.navigateByUrl('pages/productDetails');
   }
 
-  public setSidebarMenu() {
-   // this.menu = menus;
-    this.products = 20;
-    return this.products;
+  public getBrandname(products) {
+    let brands = [];
+     for ( let i = 0; i < products.length; i++ ) {
+       if ( !(brands.indexOf(products[i]['data']['brand']) > -1)) {
+         brands.push(products[i]['data']['brand']);
+       }
+    }
+    return brands;
   }
-  data = 10;
-  hidden = true;
-  show() {
-    this.hidden = false;
+
+  ngOnDestroy() {
+    this.productState$.unsubscribe();
   }
+
 }

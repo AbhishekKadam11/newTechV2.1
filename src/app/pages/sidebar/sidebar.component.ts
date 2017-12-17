@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ViewChild, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/withLatestFrom';
-
-
+import { ProductListService} from '../productlist/productlist.service';
+import { ProductlistComponent } from '../productlist/productlist.component';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -11,44 +11,56 @@ import 'rxjs/add/operator/withLatestFrom';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements AfterViewInit, OnInit {
-  // message: string = 'Hola Mundo!';
+
   title: string;
   productType: string;
-  products: any;
   menu: any;
+  brands;
+  checkboxValue = {};
 
+  private subscription: Subscription;
+  protected productState$: Subscription;
+  constructor(private productListService: ProductListService) {
 
-  // public listofMenues: Subscription;
-  // public menus;
-
-//  @ViewChild(ProductlistComponent) listComponent: ProductlistComponent;
-
-  constructor() {
-    // this.listofMenues = this.productListService.productListData('Motherboard')
-    //  .subscribe((sidebar) => {
-    //   console.log(sidebar);
-    //    this.menus = sidebar;
-    //  });
   }
 
-  public menuType(menus) {
-    this.menus = menus;
-    console.log(this.menus);
-  }
 
   ngAfterViewInit() {
 
   }
-  menus: any;
-  test: any = 20;
+
   ngOnInit() {
-    //  this.menus = this.listComponent.show();
-  //  this.test = this.listComponent.setSidebarMenu();
-    console.log(this.test);
+    this.subscription = this.productListService.notifyObservable$.subscribe((res) => {
+
+    });
   }
 
-  getmenus(val) {
-    this.test = val;
+  getmenus(brand, ptype) {
+    this.brands = brand;
+    this.productType = ptype;
   }
+
+  brandChoice = [];
+
+  selectedBrand() {
+    let i = 0;
+    for (let obj in this.checkboxValue) {
+      if (this.checkboxValue[obj]) {
+        if (!this.brandChoice.find(x => x === obj)) {
+          this.brandChoice.push(obj);
+        }
+      }
+      else {
+        if (this.brandChoice.find(x => x === obj)) {
+          this.brandChoice.splice(i, 1);
+        }
+      }
+      i++;
+    }
+    this.productListService.productListData(this.productType, this.brandChoice).subscribe((res) => {
+      //console.log(res);
+    });
+  }
+
 
 }

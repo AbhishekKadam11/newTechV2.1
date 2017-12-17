@@ -12,7 +12,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   ],
   declarations: [
     ...routedComponents,
-  //  SidebarComponent,
+    SidebarComponent,
   ],
   providers: [ProductListService],
 

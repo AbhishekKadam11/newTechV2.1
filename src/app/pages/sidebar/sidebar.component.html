@@ -17,15 +17,13 @@
 <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
   <ngb-panel title="Brands">
     <ng-template ngbPanelContent>
-      <div class="demo-checkboxes">
-        <nb-checkbox>Checkbox 1</nb-checkbox>
-        <nb-checkbox [value]="true">Checkbox 2</nb-checkbox>
+      <div class="demo-checkboxes" *ngFor="let brand of brands; let i = index">
+        <nb-checkbox  [(ngModel)]="checkboxValue[brand]" (change)="selectedBrand()">{{brand}}</nb-checkbox>
       </div>
-
     </ng-template>
   </ngb-panel>
 
-</ngb-accordion> Message: {{menus}} - {{test}}
+</ngb-accordion>
 
 
 </div>
