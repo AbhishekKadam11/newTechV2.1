@@ -23,7 +23,7 @@ export class ProductListService {
     return this.http
       .get(
        // 'http://localhost:8080/api/productList/' + ptype + '/' + selectedChoices,
-           'https://newtechserver.herokuapp.com/api/' + ptype + '/' + selectedChoices,
+           'https://newtechserver.herokuapp.com/api/productList/' + ptype + '/' + selectedChoices,
         {headers},
       )
       .map(res => res.json())
