@@ -16,34 +16,34 @@ export class ProductListService {
   }
 
 
-  // productListData(ptype, selectedChoices?) {
-  //  const headers = new Headers();
-  //  headers.append('Content-Type', 'application/json');
-  //
-  //   let params: URLSearchParams = new URLSearchParams();
-  //   params.set('ptype', ptype);
-  //   params.set('selectedChoices', selectedChoices);
-  //
-  //
-  //   return this.http
-  //     .get(
-  //       // 'http://localhost:8080/api/productList',  {
-  //       //   search: params,
-  //       //  headers,
-  //       // },
-  //       'https://newtechserver.herokuapp.com/api/productList',  {
-  //         search: params,
-  //         headers,
-  //       },
-  //
-  //
-  //     )
-  //     .map(res => res.json())
-  //     .map((res) => {
-  //       this.notify.next(res);
-  //       return res;
-  //     });
-  // }
+  productListData(ptype, selectedChoices?) {
+   const headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('ptype', ptype);
+    params.set('selectedChoices', selectedChoices);
+
+
+    return this.http
+      .get(
+        // 'http://localhost:8080/api/productList',  {
+        //   search: params,
+        //  headers,
+        // },
+        'https://newtechserver.herokuapp.com/api/productList',  {
+          search: params,
+          headers,
+        },
+
+
+      )
+      .map(res => res.json())
+      .map((res) => {
+        this.notify.next(res);
+        return res;
+      });
+  }
 
   public setProductData(data) {
     this.notify.next(data);
