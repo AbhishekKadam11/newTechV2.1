@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ViewChild, OnInit, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import {AfterViewInit, Component, ViewChild, OnInit, ViewEncapsulation, EventEmitter, Output} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/operator/withLatestFrom';
-import { ProductListService} from '../productlist/productlist.service';
-import { ProductlistComponent } from '../productlist/productlist.component';
+import {ProductListService} from '../productlist/productlist.service';
+import {ProductlistComponent} from '../productlist/productlist.component';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -20,6 +20,7 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   private subscription: Subscription;
   protected productState$: Subscription;
+
   constructor(private productListService: ProductListService) {
 
   }
@@ -42,24 +43,22 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   brandChoice = [];
 
-  selectedBrand() {
-    let i = 0;
-    for (let obj in this.checkboxValue) {
-      if (this.checkboxValue[obj]) {
-        if (!this.brandChoice.find(x => x === obj)) {
-          this.brandChoice.push(obj);
-        }
-      }
-      else {
-        if (this.brandChoice.find(x => x === obj)) {
-          this.brandChoice.splice(i, 1);
-        }
-      }
-      i++;
+  selectedBrand(event, brand) {
+    if (event.target.checked) {
+      this.brandChoice.push(brand);
+    } else {
+      const index = this.brandChoice.indexOf(brand);
+      this.brandChoice.splice(index, 1);
     }
-    this.productListService.productListData(this.productType, this.brandChoice).subscribe((res) => {
-      //console.log(res);
-    });
+
+  //  if (this.brandChoice.length !== 0) {
+      this.productListService.productListData(this.productType, this.brandChoice).subscribe((res) => {
+        //console.log(res);
+      });
+   // }
+
+    console.log(this.brandChoice);
+
   }
 
 

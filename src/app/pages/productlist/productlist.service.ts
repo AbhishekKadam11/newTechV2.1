@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, URLSearchParams, RequestOptions} from '@angular/http';
+import {Http, Headers, URLSearchParams, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
@@ -7,24 +7,36 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ProductListService {
-
+  private notify = new Subject();
+  notifyObservable$ = this.notify.asObservable();
   public productData: any;
+
   constructor(private http: Http) {
 
   }
 
-  private notify = new Subject();
-  notifyObservable$ = this.notify.asObservable();
 
   productListData(ptype, selectedChoices?) {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
+   const headers = new Headers();
+   headers.append('Content-Type', 'application/json');
+
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('ptype', ptype);
+    params.set('selectedChoices', selectedChoices);
+
 
     return this.http
       .get(
-       // 'http://localhost:8080/api/productList/' + ptype + '/' + selectedChoices,
-           'https://newtechserver.herokuapp.com/api/productList/' + ptype + '/' + selectedChoices,
-        {headers},
+        // 'http://localhost:8080/api/productList',  {
+        //   search: params,
+        //  headers,
+        // },
+        'https://newtechserver.herokuapp.com/api/productList',  {
+          search: params,
+          headers,
+        },
+
+
       )
       .map(res => res.json())
       .map((res) => {
