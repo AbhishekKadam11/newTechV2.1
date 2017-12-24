@@ -20,9 +20,9 @@ export class ProductListService {
    const headers = new Headers();
    headers.append('Content-Type', 'application/json');
 
-    // let params: URLSearchParams = new URLSearchParams();
-    // params.set('ptype', ptype);
-    // params.set('selectedChoices', selectedChoices);
+    let params: URLSearchParams = new URLSearchParams();
+    params.set('ptype', ptype);
+    params.set('selectedChoices', selectedChoices);
 
 
     return this.http
@@ -31,7 +31,10 @@ export class ProductListService {
         //   search: params,
         //  headers,
         // },
-        'https://newtechserver.herokuapp.com/api/productList',  {headers},
+        'https://newtechserver.herokuapp.com/api/productList',  {
+          search: params,
+          headers,
+        },
 
 
       )
