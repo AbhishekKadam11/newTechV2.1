@@ -22,7 +22,7 @@ import { HttpClient } from './app.httpclient';
 // import { NgxCarouselModule } from 'ngx-carousel';
 // import 'hammerjs';
 import { PlusSpinnerModule } from 'plus-spinner';
- import { CartService } from './pages/cart/cart.service';
+import { CartService } from './pages/cart/cart.service';
 
 @NgModule({
   declarations: [AppComponent],
