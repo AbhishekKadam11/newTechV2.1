@@ -21,7 +21,7 @@ import { HttpClient } from './app.httpclient';
 
 // import { NgxCarouselModule } from 'ngx-carousel';
 // import 'hammerjs';
-import { PlusSpinnerModule } from 'plus-spinner';
+// import { PlusSpinnerModule } from 'plus-spinner';
 import { CartService } from './pages/cart/cart.service';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { CartService } from './pages/cart/cart.service';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
-    PlusSpinnerModule.forRoot(),
+    // PlusSpinnerModule.forRoot(),
 
   ],
   bootstrap: [AppComponent],
