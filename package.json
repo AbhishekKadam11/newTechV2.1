@@ -65,6 +65,7 @@
     "ngx-mydatepicker": "^2.1.4",
     "ngx-uploader": "^4.0.0",
     "normalize.css": "6.0.0",
+    "plus-spinner": "^1.0.2",
     "roboto-fontface": "0.8.0",
     "rxjs": "5.4.2",
     "socicon": "^3.0.5",
