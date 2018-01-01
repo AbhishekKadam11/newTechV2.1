@@ -35,7 +35,7 @@ export class ProductService {
 
     return this.http
       .post(
-     //   'http://localhost:8080/api/productCategory',
+      //   'http://localhost:8080/api/productCategory',
         'https://newtechserver.herokuapp.com/api/productCategory',
         JSON.stringify({data: values}),
         {headers},
@@ -56,7 +56,7 @@ export class ProductService {
 
     return this.http
       .post(
-       //  'http://localhost:8080/api/newProduct',
+      //   'http://localhost:8080/api/newProduct',
         'https://newtechserver.herokuapp.com/api/newProduct',
         JSON.stringify({data: values}),
         {headers},

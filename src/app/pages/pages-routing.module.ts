@@ -46,12 +46,14 @@ const routes: Routes = [{
     path: 'productlist/:productType',
     loadChildren: './productlist/productlist.module#ProductlistModule',
   }, {
+      path: 'checkout',
+      loadChildren: './checkout/checkout.module#CheckoutModule',
+    }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   }],
 },
- // { path: 'dashboard',  loadChildren: 'app/pages/dashboard/dashboard.module#DashboardModule' },
 ];
 
 @NgModule({

@@ -42,7 +42,6 @@ export class SidebarComponent implements AfterViewInit, OnInit {
   }
 
   brandChoice = [];
-
   selectedBrand(event, brand) {
     if (event.target.checked) {
       this.brandChoice.push(brand);
@@ -50,15 +49,9 @@ export class SidebarComponent implements AfterViewInit, OnInit {
       const index = this.brandChoice.indexOf(brand);
       this.brandChoice.splice(index, 1);
     }
-
-  //  if (this.brandChoice.length !== 0) {
-      this.productListService.productListData(this.productType, this.brandChoice).subscribe((res) => {
-        //console.log(res);
-      });
-   // }
-
-    console.log(this.brandChoice);
-
+    this.productListService.productListData(this.productType, this.brandChoice).subscribe((res) => {
+      //console.log(res);
+    });
   }
 
 

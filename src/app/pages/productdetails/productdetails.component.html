@@ -8,7 +8,7 @@
     <div class="row">
 
       <div class="mx-auto d-block">
-        <img [src]="image" class="img" >
+        <img [src]="product['image']" class="img" >
       </div>
 
     </div>
@@ -16,7 +16,7 @@
       <div class="mx-auto d-block">
         <ngb-carousel>
           <ng-template ngbSlide>
-            <div *ngFor="let slide of productimages;let i = index" class="">
+            <div *ngFor="let slide of product['productimages'];let i = index" class="">
               <a (click)="showimage(i)">
                 <img [src]="slide"  height="80px" class="mlr10">
               </a>
@@ -28,10 +28,10 @@
   </div>
   <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
     <div class="row">
-      <h5 class="text-hint" *ngIf="brand">{{brand}}</h5>
+      <h5 class="text-hint" *ngIf="product['brand']">{{product['brand']}}</h5>
     </div>
     <div class="row">
-      <h4>{{title}}</h4>
+      <h4>{{product['title']}}</h4>
     </div>
     <div class="row">
       <ngb-rating [(rate)]="starRate" max=5 [readonly]="true">
@@ -49,18 +49,18 @@
     <hr style="margin-left: -15px">
     <div class="row">
       <h5>Price:</h5>
-      <h4 class="text-danger lm10"> ₹ {{price}}</h4>
+      <h4 class="text-danger lm10"> ₹ {{product['price']}}</h4>
     </div>
     <div class="row">
       <h5>Quantity:</h5>
       <div class="col-xxxl-2 col-xxl-2 col-lg-2 col-md-2">
         <div class="input-group input-group-sm">
-          <input type="number" min="0" placeholder="" class="form-control"/>
+          <input type="number" [(ngModel)]="product['quantity']" min="1"  class="form-control"/>
         </div>
       </div>
       <div class="col-xxxl-3 col-xxl-3 col-lg-3 col-md-3">
         <div class="input-group input-group-sm">
-          <button title="Add to cart" class="btn btn-hero-info btn-sm"> Add to cart </button>
+          <button title="Add to cart" (click)="AddProduct()" class="btn btn-hero-info btn-sm"> Add to cart </button>
         </div>
       </div>
 
@@ -70,7 +70,7 @@
         <!--<span class="alert alert-hint ">-->
           <!--short details-->
         <!--</span>-->
-        <div [innerHTML]="shortdescription">
+        <div [innerHTML]="product['shortdescription']">
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@
   <nb-card-header class=""><h4>Product information</h4> </nb-card-header>
   <nb-card-body>
     <div class="row">
-      <div class="lm10" [innerHTML]="fulldescription">
+      <div class="lm10" [innerHTML]="product['fulldescription']">
       </div>
     </div>
   </nb-card-body>

@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   monitor;
   routers;
   motherboard;
+  public isRunning: boolean = true;
   // template: string = `<div class="col-xxxl-12 col-xxl-12 col-lg-12 col-md-12">
   //     <img src="http://pa1.narvii.com/5722/2c617cd9674417d272084884b61e4bb7dd5f0b15_hq.gif" />
   //       </div>`;
@@ -42,7 +43,8 @@ export class DashboardComponent implements OnInit {
       this.monitor = result['monitor'];
       this.routers = result['router'];
     //  this.spinnerService.hide();
-      console.log(result);
+      this.isRunning = false;
+    //  console.log(result);
     })
   }
 

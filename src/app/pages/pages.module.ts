@@ -4,6 +4,8 @@ import { PagesComponent } from './pages.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
+// import { CheckoutComponent } from './src/app/pages/checkout/checkout.component';
+// import { CartComponent } from './cart/src/app/pages/cart/cart/cart.component';
 // import { SidebarmenusComponent } from '../pages/sidebarmenus/sidebarmenus.component';
 // import { ProductlistComponent } from './src/app/pages/productlist/productlist.component';
 // import { ProductdetailsComponent } from './src/app/pages/productdetails/productdetails.component';
@@ -26,6 +28,8 @@ const PAGES_COMPONENTS = [
   ],
   declarations: [
     ...PAGES_COMPONENTS,
+  //  CheckoutComponent,
+    // CartComponent,
   //  SidebarmenusComponent,
  //   ProductlistComponent,
  //   ProductdetailsComponent,

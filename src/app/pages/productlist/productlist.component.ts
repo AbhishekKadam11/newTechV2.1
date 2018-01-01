@@ -16,8 +16,9 @@ export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
 
   title: string;
   productType: string;
-  products: any;
+  public products: any;
   menu: any;
+  public isRunning: boolean = true;
 
   @ViewChild(SidebarComponent) sidebar: SidebarComponent;
   protected productState$: Subscription;
@@ -36,6 +37,7 @@ export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
     this.productState$ = this.productListService.notifyObservable$.subscribe((result) => {
+      this.products = {};
       if (result) {
         this.getFilteredProductList(result);
       }
@@ -74,6 +76,7 @@ export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
             let brands = this.getBrandname(result['router']);
             this.sidebar.getmenus(brands, this.title);
           }
+    this.isRunning = false;
         //  console.log(this.products);
   }
 
@@ -93,6 +96,7 @@ export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
     if (result.hasOwnProperty('router')) {
       this.products = result['router'];
     }
+    this.isRunning = false;
   }
 
   productDetails(productId) {

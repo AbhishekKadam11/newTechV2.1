@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { SidebarComponent } from '../pages/sidebar/sidebar.component'
+import { CartComponent } from '../pages/cart/cart.component'
+
 
 import {
   NbActionsModule,
@@ -65,6 +66,7 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  CartComponent
  // SidebarComponent,
 // MenuComponent,
 //  SidebarmenusModule,
