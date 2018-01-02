@@ -11,7 +11,7 @@ export class ProfileService {
   }
 
   getProfileData() {
-   //  return this.http.get('http://localhost:8080/api/userBasicDetails')
+  //   return this.http.get('http://localhost:8080/api/userBasicDetails')
        return this.http.get('https://newtechserver.herokuapp.com/api/userBasicDetails')
       .map(res => res.json())
       .map((res) => {
@@ -21,7 +21,7 @@ export class ProfileService {
 
   setprofileData(profile) {
     var profiledata = JSON.stringify({ data: profile });
- //    return this.http.post('http://localhost:8080/api/profiledata', profile)
+//     return this.http.post('http://localhost:8080/api/profiledata', profile)
     return this.http.post('https://newtechserver.herokuapp.com/api/profiledata', profile)
       .map(res => res.json())
       .map((res) => {

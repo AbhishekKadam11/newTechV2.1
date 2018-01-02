@@ -14,8 +14,8 @@ export class ProductDetailsService {
 
     return this.http
       .get(
-     //    'http://localhost:8080/api/productDescriptionData/' + pid,
-         'https://newtechserver.herokuapp.com/api/productDescriptionData/' + pid,
+        // 'http://localhost:8080/api/productDescriptionData/' + pid,
+        'https://newtechserver.herokuapp.com/api/productDescriptionData/' + pid,
         {headers},
       )
       .map(res => res.json())

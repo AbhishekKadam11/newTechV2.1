@@ -17,19 +17,26 @@ export class CartService {
   public cart: any = {};
 
   getCartItems() {
-    return this.cart = localStorage.getItem('cart');
+    this.cart = localStorage.getItem('cart');
+    if (this.cart) {
+      this.Products = JSON.parse(this.cart);
+    }
+    return this.cart;
   }
 
   addProduct(product: any) {
+
     this.Products.push(product);
     localStorage.setItem('cart', JSON.stringify(this.Products));
     this.cartSubject.next({loaded: true, products: this.Products});
   //  console.log(this.Products);
   }
-  // removeProduct(id:number) {
-  //   this.Products = this.Products.filter((_item) =>  _item.id !== id );
-  //   this.cartSubject.next(<CartState>{loaded: false , products:  this.Products});
-  // }
+  removeProduct(index: number) {
+    console.log(index);
+    this.Products.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(this.Products));
+    this.cartSubject.next({loaded: false , products:  this.Products});
+  }
 
   // getAllProducts() : Observable <any> {
   //   // return this.httpclient.get(url).map((res : Response) => res.json())

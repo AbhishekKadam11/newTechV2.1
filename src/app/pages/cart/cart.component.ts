@@ -19,6 +19,8 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService) {}
   ngOnInit() {
+  //  this.cartData =  this.cartService.getCartItems();
+  //  console.log(JSON.parse(this.cartData));
     this.cartData =  JSON.parse(this.cartService.getCartItems());
     if ( this.cartData ) {
         this.itemcount = this.cartData.length;
