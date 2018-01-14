@@ -46,7 +46,7 @@
       <!--</div>-->
     <!--</div>-->
 
-      <div class="table-responsive">
+      <div class="table-responsive" *ngIf="!isEmpty">
         <table class="table table-framed">
           <thead>
           <tr>
@@ -90,13 +90,16 @@
           <div class="col-sm-1">
             <b> ₹ {{total}}</b>
           </div>
-
           </div>
-          <!--<div class="col-lg-3">-->
-            <!--This <a  class="alert-link" href="#">alert needs your attention</a>, but it's not super important.-->
-          <!--</div>-->
           </div>
 
+          <div class="offset-md-5">
+            <button class="btn btn-success btn-round btn-demo" (click)="checkoutCart()">Proceed to checkout</button>
+          </div>
+
+        </div>
+      <div class="row" *ngIf="isEmpty">
+        <h4>Your Shopping Cart is empty.</h4>
       </div>
 
 

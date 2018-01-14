@@ -18,10 +18,10 @@ export class HeaderComponent implements OnInit {
   @Input() position: string = 'normal';
 
   user: any;
-  public logged:boolean = false;
-  public profileName:string;
-  public userId:string;
-  hidebttn:boolean = false;
+  public logged: boolean = false;
+  public profileName: string;
+  public userId: string;
+  hidebttn: boolean = false;
   menuClick: EventEmitter<NbMenuService>;
 
   userMenu = [{ title: 'Profile', item: 'profile'  }, { title: 'Log out' , item: 'logout' }];
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     // this.userService.getUsers()
     //   .subscribe((users: any) => this.user = users.nick);
-    if (this.userService.profileName) {
+    if ( this.userService.profileName ) {
       this.logged = this.userService.loggedIn;
       this.profileName = this.userService.profileName;
       this.userId = this.userService.userId;

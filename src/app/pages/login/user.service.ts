@@ -12,7 +12,7 @@ export class UserService {
   public basicdata: string;
 
   constructor(private http: Http) {
-    this.loggedIn = !!localStorage.getItem('auth_token');
+  //  this.loggedIn = !!localStorage.getItem('auth_token');
     // this.userId = route.snapshot.params[localStorage.getItem('auth_token')];
   }
 

@@ -19,7 +19,7 @@ export class CartService {
   getCartItems() {
     this.cart = localStorage.getItem('cart');
     if (this.cart) {
-      this.Products = JSON.parse(this.cart);
+       this.Products = JSON.parse(this.cart);
     }
     return this.cart;
   }
@@ -36,6 +36,11 @@ export class CartService {
     this.Products.splice(index, 1);
     localStorage.setItem('cart', JSON.stringify(this.Products));
     this.cartSubject.next({loaded: false , products:  this.Products});
+  }
+
+  emptyCart() {
+    localStorage.removeItem('cart');
+    this.cartSubject.next({loaded: true, products: 0});
   }
 
   // getAllProducts() : Observable <any> {
