@@ -1,6 +1,7 @@
 import { Component, EventEmitter , OnInit, ViewEncapsulation } from '@angular/core';
 import { UploadOutput, UploadInput, UploadFile, humanizeBytes, UploaderOptions, UploadStatus } from 'ngx-uploader';
 
+// import { FancyImageUploaderOptions, UploadedFile } from 'ng2-fancy-image-uploader';
 import { ProfileService } from './profile.service'
 
 @Component({
@@ -9,7 +10,7 @@ import { ProfileService } from './profile.service'
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
 
   // private states: Array<any> = [];
   // private cities: Array<any> = [];
@@ -24,12 +25,21 @@ export class ProfileComponent implements OnInit{
   uploadInput: EventEmitter<UploadInput>;
   humanizeBytes: Function;
   dragOver: boolean;
-  options: UploaderOptions;
+ // options: UploaderOptions;
   percent: number;
   uploading: boolean;
   public defaultPicture = 'assets/images/no-photo.png';
   picture;
   imagePreview;
+  // options: FancyImageUploaderOptions = {
+  //   thumbnailHeight: 150,
+  //   thumbnailWidth: 150,
+  //   uploadUrl: 'http://localhost:8080/api/upload',
+  //   allowedImageTypes: ['image/png', 'image/jpeg'],
+  // //  maxImageSize: 3,
+  // };
+
+
 
   constructor(private profileService: ProfileService) {
     // this.uploading = false;
@@ -46,6 +56,9 @@ export class ProfileComponent implements OnInit{
     })
   }
 
+  // onUpload(file: UploadedFile) {
+  //   console.log(file);
+  // }
 //   onUploadOutput(output: UploadOutput): void {
 //     if (output.type === 'allAddedToQueue') {
 //       const event: UploadInput = {

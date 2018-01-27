@@ -27,14 +27,14 @@ export class ProductListService {
 
     return this.http
       .get(
-        // 'http://localhost:8080/api/productList',  {
-        //   search: params,
-        //  headers,
-        // },
-        'https://newtechserver.herokuapp.com/api/productList',  {
+        'http://localhost:8080/api/productList',  {
           search: params,
-          headers,
+         headers,
         },
+        // 'https://newtechserver.herokuapp.com/api/productList',  {
+        //   search: params,
+        //   headers,
+        // },
 
 
       )

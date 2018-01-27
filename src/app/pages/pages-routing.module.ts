@@ -21,10 +21,7 @@ const routes: Routes = [{
   }, {
     path: 'maps',
     loadChildren: './maps/maps.module#MapsModule',
-  }, {
-    path: 'charts',
-    loadChildren: './charts/charts.module#ChartsModule',
-  }, {
+  },  {
     path: 'editors',
     loadChildren: './editors/editors.module#EditorsModule',
   }, {
