@@ -108,14 +108,11 @@ export class DashboardComponent implements OnInit {
   }
 
   startLoadingSpinner() {
-
-
   //  this.spinnerService.show();
     // To test threshold change delay in query string it accepts time in secs
     }
 
   productDetails(productId) {
-
     this.router.navigate(['/pages/productdetails', productId ]);
   //  this.router.navigateByUrl('pages/productDetails');
   }
