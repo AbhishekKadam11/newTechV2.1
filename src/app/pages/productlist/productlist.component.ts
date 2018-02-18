@@ -76,7 +76,6 @@ export class ProductlistComponent implements OnInit, AfterViewInit, OnDestroy {
             this.sidebar.getmenus(brands, this.title);
           }
     this.isRunning = false;
-        //  console.log(this.products);
   }
 
   getFilteredProductList(result) {
