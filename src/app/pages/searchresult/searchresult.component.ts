@@ -25,7 +25,6 @@ export class SearchresultComponent implements OnInit {
         this.products = result;
         console.log(result);
       })
-
     });
   }
 

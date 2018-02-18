@@ -32,7 +32,6 @@ export class SidebarComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.subscription = this.productListService.notifyObservable$.subscribe((res) => {
-
     });
   }
 
