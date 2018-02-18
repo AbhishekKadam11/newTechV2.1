@@ -36,8 +36,6 @@ export class ProductListService {
         //   search: params,
         //   headers,
         // },
-
-
       )
       .map(res => res.json())
       .map((res) => {
