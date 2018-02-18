@@ -66,7 +66,7 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
-  CartComponent
+  CartComponent,
  // SidebarComponent,
 // MenuComponent,
 //  SidebarmenusModule,
