@@ -42,10 +42,10 @@
 }
 
 div.image:before {
-  content:url(http://placehold.it/350x150);
+  content: url(http://placehold.it/350x150);
 }
 
- .spinner img {
+.spinner img {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,11 +60,10 @@ div.image:before {
 
 div > img {
   width: auto;
-  height : auto;
+  height: auto;
   max-height: 100%;
   max-width: 100%;
 }
-
 
 .thumbnail {
   width: 130px !important;
@@ -156,17 +155,22 @@ div > img {
 }
 
 @-webkit-keyframes sk-stretchdelay {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4)
+  }
+  20% {
+    -webkit-transform: scaleY(1.0)
+  }
 }
 
 @keyframes sk-stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(0.4);
     -webkit-transform: scaleY(0.4);
-  }  20% {
-       transform: scaleY(1.0);
-       -webkit-transform: scaleY(1.0);
-     }
+  }
+  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
 }
 
