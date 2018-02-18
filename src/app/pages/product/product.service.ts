@@ -26,7 +26,6 @@ export class ProductService {
         } else {
           return res;
         }
-
       });
   }
 
