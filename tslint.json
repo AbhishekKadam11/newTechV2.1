@@ -15,7 +15,7 @@
       true,
       "rxjs"
     ],
-    "import-spacing": true,
+    "import-spacing": false,
     "indent": false,
     "interface-over-type-literal": true,
     "label-position": true,
@@ -57,16 +57,7 @@
       true,
       "allow-null-check"
     ],
-    "typedef-whitespace": [
-      true,
-      {
-        "call-signature": "nospace",
-        "index-signature": "nospace",
-        "parameter": "nospace",
-        "property-declaration": "nospace",
-        "variable-declaration": "nospace"
-      }
-    ],
+    "typedef-whitespace": false,
     "typeof-compare": true,
     "unified-signatures": true,
     "variable-name": false,
