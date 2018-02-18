@@ -52,7 +52,6 @@ export class ProductListService {
   }
 
   public getproductData() {
-
     return this.productData;
   }
 
