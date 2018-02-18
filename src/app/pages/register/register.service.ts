@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
+import {GlobalShared} from '../../app.global';
 
 
 @Injectable()
 export class RegisterService {
-  constructor(private http: Http) {
+  constructor(private http: Http, private globalShared: GlobalShared) {
 
   }
 
@@ -14,7 +15,7 @@ export class RegisterService {
 
     return this.http
       .post(
-        'https://newtechserver.herokuapp.com/api/signup',
+        this.globalShared['serverpath'] + 'signup',
         JSON.stringify({data: values}),
         {headers}
       )

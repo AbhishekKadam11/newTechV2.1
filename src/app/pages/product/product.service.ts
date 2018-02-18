@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
+import {GlobalShared} from '../../app.global';
 
 
 @Injectable()
 export class ProductService {
-  constructor(private http: Http) {
+  constructor(private http: Http, private globalShared: GlobalShared) {
 
   }
 
@@ -14,8 +15,8 @@ export class ProductService {
 
     return this.http
       .get(
-      //   'http://localhost:8080/api/productDropdownData',
-        'https://newtechserver.herokuapp.com/api/productDropdownData',
+        this.globalShared['serverpath'] + 'productDropdownData',
+        // 'https://newtechserver.herokuapp.com/api/productDropdownData',
         {headers},
       )
       .map(res => res.json())
@@ -35,7 +36,7 @@ export class ProductService {
 
     return this.http
       .post(
-         'http://localhost:8080/api/productCategory',
+        this.globalShared['serverpath'] + 'productCategory',
       //  'https://newtechserver.herokuapp.com/api/productCategory',
         JSON.stringify({data: values}),
         {headers},
@@ -56,7 +57,7 @@ export class ProductService {
 
     return this.http
       .post(
-         'http://localhost:8080/api/newProduct',
+        this.globalShared['serverpath'] + 'newProduct',
       //  'https://newtechserver.herokuapp.com/api/newProduct',
         JSON.stringify({data: values}),
         {headers},

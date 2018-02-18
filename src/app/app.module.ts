@@ -18,11 +18,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserService } from './pages/login/user.service';
 import { HttpClient } from './app.httpclient';
+import { HttpClientModule } from '@angular/common/http';
 
 // import { NgxCarouselModule } from 'ngx-carousel';
 // import 'hammerjs';
 // import { PlusSpinnerModule } from 'plus-spinner';
 import { CartService } from './pages/cart/cart.service';
+import { GlobalShared } from './app.global';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +33,7 @@ import { CartService } from './pages/cart/cart.service';
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
+    HttpClientModule,
 
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
@@ -48,6 +51,7 @@ import { CartService } from './pages/cart/cart.service';
       useFactory: authHttpServiceFactory,
       deps: [XHRBackend, RequestOptions],
     },
+    GlobalShared,
   ],
 })
 export class AppModule {

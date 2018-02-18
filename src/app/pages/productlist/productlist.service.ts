@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
+import {GlobalShared} from '../../app.global';
 
 @Injectable()
 export class ProductListService {
@@ -11,7 +12,7 @@ export class ProductListService {
   notifyObservable$ = this.notify.asObservable();
   public productData: any;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private globalShared: GlobalShared) {
 
   }
 
@@ -27,7 +28,7 @@ export class ProductListService {
 
     return this.http
       .get(
-        'http://localhost:8080/api/productList',  {
+        this.globalShared['serverpath'] + 'productList',  {
           search: params,
          headers,
         },

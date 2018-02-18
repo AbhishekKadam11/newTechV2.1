@@ -59,7 +59,7 @@
           </thead>
           <tbody>
           <tr *ngFor="let item of cartData; let i = index">
-            <td>   <img [src]="item['image']" class="thumbnail mx-auto d-block"></td>
+            <td>   <img [src]="'http://localhost:8080/uploads/'+item['image']" class="thumbnail mx-auto d-block"></td>
             <td>{{item['title']}}</td>
             <td>
 

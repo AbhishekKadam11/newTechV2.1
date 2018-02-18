@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, URLSearchParams, RequestOptions} from '@angular/http';
+import {GlobalShared} from '../../app.global';
 
 
 @Injectable()
 export class ProductDetailsService {
-  constructor(private http: Http) {
+  constructor(private http: Http, private globalShared: GlobalShared) {
 
   }
 
@@ -14,7 +15,7 @@ export class ProductDetailsService {
 
     return this.http
       .get(
-         'http://localhost:8080/api/productDescriptionData/' + pid,
+        this.globalShared['serverpath'] + 'productDescriptionData/' + pid,
         //'https://newtechserver.herokuapp.com/api/productDescriptionData/' + pid,
         {headers},
       )

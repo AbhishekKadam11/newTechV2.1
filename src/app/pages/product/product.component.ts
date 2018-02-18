@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {INgxMyDpOptions, IMyDateModel} from 'ngx-mydatepicker';
 import {FileHolder} from '../../../../node_modules/angular2-image-upload/lib/image-upload/image-upload.component';
-import './ckeditor.loader';
-import 'ckeditor';
+// import './ckeditor.loader';
+// import 'ckeditor';
 
 import {ProductService} from './product.service'
 
@@ -24,12 +24,24 @@ export class ProductComponent implements OnInit {
     // other options...
     dateFormat: 'dd-mm-yyyy',
   };
+  public items: string[] = ['Amsterdam', 'Antwerp', 'Athens', 'Barcelona',
+    'Berlin', 'Birmingham', 'Bradford', 'Bremen', 'Brussels', 'Bucharest',
+    'Budapest', 'Cologne', 'Copenhagen', 'Dortmund', 'Dresden', 'Dublin',
+    'Düsseldorf', 'Essen', 'Frankfurt', 'Genoa', 'Glasgow', 'Gothenburg',
+    'Hamburg', 'Hannover', 'Helsinki', 'Kraków', 'Leeds', 'Leipzig', 'Lisbon',
+    'London', 'Madrid', 'Manchester', 'Marseille', 'Milan', 'Munich', 'Málaga',
+    'Naples', 'Palermo', 'Paris', 'Poznań', 'Prague', 'Riga', 'Rome',
+    'Rotterdam', 'Seville', 'Sheffield', 'Sofia', 'Stockholm', 'Stuttgart',
+    'The Hague', 'Turin', 'Valencia', 'Vienna', 'Vilnius', 'Warsaw', 'Wrocław',
+    'Zagreb', 'Zaragoza', 'Łódź'];
 
   constructor(private productService: ProductService) {
     this.productService.productDropdownData().subscribe((result) => {
       this.category = result['category'];
       this.brand = result['brand'];
+      console.log(this.category);
     });
+
   }
 
   ngOnInit() {
@@ -43,6 +55,7 @@ export class ProductComponent implements OnInit {
 
   posterImageUploaded(file: FileHolder) {
     this.product['image'] = file.serverResponse['_body'];
+    console.log(this.product['image']);
   }
 
   onRemoved(file: FileHolder) {
@@ -68,7 +81,7 @@ export class ProductComponent implements OnInit {
     } else {
       this.product['arrivaldate'] = this.product.arrivaldate;
     }
-
+  //  console.log(this.product);
     this.productService.newProductAdd(this.product) .subscribe((result) => {
       this.savedSuccess = true;
       setTimeout(() => {

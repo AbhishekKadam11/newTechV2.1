@@ -8,7 +8,7 @@ import 'rxjs/add/operator/catch';
 export class HttpClient extends Http {
 
   constructor(backend: XHRBackend, options: RequestOptions) {
-    let token = localStorage.getItem('auth_token'); //  custom token getter function
+    const token = localStorage.getItem('auth_token'); //  custom token getter function
     options.headers.set('Authorization', token);
     super(backend, options);
   }
@@ -39,7 +39,7 @@ export class HttpClient extends Http {
  //  }
 
   request(url: string|Request, options?: RequestOptionsArgs): Observable<Response> {
-    let token = localStorage.getItem('auth_token');
+    const token = localStorage.getItem('auth_token');
     if (typeof url === 'string') { // meaning we have to add the token to the options, not in url
       if (!options) {
         // let's make option object

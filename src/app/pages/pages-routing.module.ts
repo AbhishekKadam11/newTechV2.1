@@ -46,6 +46,9 @@ const routes: Routes = [{
       path: 'checkout',
       loadChildren: './checkout/checkout.module#CheckoutModule',
     }, {
+      path: 'searchresult/:searchkey',
+      loadChildren: './searchresult/searchresult.module#SearchresultModule',
+    }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

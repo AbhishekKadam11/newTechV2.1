@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers} from '@angular/http';
+import {GlobalShared} from '../../app.global';
 //import { HttpClient  } from '../../app.httpclient';
 // import { ActivatedRoute } from '@angular/router';
 
@@ -11,7 +12,7 @@ export class UserService {
   public userId: string;
   public basicdata: string;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private globalShared: GlobalShared) {
   //  this.loggedIn = !!localStorage.getItem('auth_token');
     // this.userId = route.snapshot.params[localStorage.getItem('auth_token')];
   }
@@ -23,7 +24,7 @@ export class UserService {
     return this.http
       .post(
       //  'https://newtechserver.herokuapp.com/api/authenticate',
-        'http://localhost:8080/api/authenticate',
+        this.globalShared['serverpath'] + 'authenticate',
         JSON.stringify({name: values.email, password: values.password}),
         {headers}
       )

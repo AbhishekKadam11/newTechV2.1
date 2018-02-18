@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CKEditorModule } from 'ng2-ckeditor';
+// import { CKEditorModule } from 'ng2-ckeditor';
 import { ThemeModule } from '../../@theme/theme.module';
 import { ImageUploadModule } from 'angular2-image-upload';
 import { ProductRoutingModule, routedComponents } from './productdetails-routing.module';
@@ -12,7 +12,7 @@ import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
   imports: [
     ThemeModule,
     ProductRoutingModule,
-    CKEditorModule,
+    // CKEditorModule,
     ImageUploadModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
   ],

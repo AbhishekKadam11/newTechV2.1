@@ -1,9 +1,10 @@
 import { Component, Input, OnInit, EventEmitter } from '@angular/core';
 
-import { NbMenuService, NbSidebarService } from '@nebular/theme';
+import { NbMenuService, NbSidebarService, NbSearchService } from '@nebular/theme';
 // import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 import { Router } from '@angular/router';
+// import { NbSearchService } from './search.service';
 
 import {UserService} from '../../../pages/login/user.service';
 
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
   public userId: string;
   hidebttn: boolean = false;
   menuClick: EventEmitter<NbMenuService>;
+  searchString: string;
 
   userMenu = [{ title: 'Profile', item: 'profile'  }, { title: 'Log out' , item: 'logout' }];
 
@@ -30,7 +32,8 @@ export class HeaderComponent implements OnInit {
               private menuService: NbMenuService,
               private analyticsService: AnalyticsService,
               private router: Router,
-              private userService: UserService) {
+              private userService: UserService,
+              private searchService: NbSearchService) {
   }
 
   ngOnInit() {
@@ -42,6 +45,12 @@ export class HeaderComponent implements OnInit {
       this.userId = this.userService.userId;
       this.hidebttn = true;
     }
+
+    this.searchService.onSearchSubmit().subscribe((result) => {
+    //  this.searchString = result;
+      this.router.navigate(['/pages/searchresult', result.term]);
+    //  console.log(result.term);
+    })
   }
 
   onMenuClick($event) {
@@ -71,5 +80,9 @@ export class HeaderComponent implements OnInit {
   startSearch() {
     this.analyticsService.trackEvent('startSearch');
   }
+
+  // searchServicesubmitSearch() {
+  //   console.log('text');
+  // }
 
 }

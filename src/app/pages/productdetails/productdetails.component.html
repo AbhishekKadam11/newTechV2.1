@@ -8,7 +8,7 @@
     <div class="row">
 
       <div class="mx-auto d-block">
-        <img [src]="product['image']" class="img" >
+        <img [src]="'http://localhost:8080/uploads/'+product['image']" class="img" >
       </div>
 
     </div>
@@ -18,7 +18,7 @@
           <ng-template ngbSlide>
             <div *ngFor="let slide of product['productimages'];let i = index" class="">
               <a (click)="showimage(i)">
-                <img [src]="slide"  height="80px" class="mlr10">
+                <img [src]="'http://localhost:8080/uploads/'+slide"  height="80px" class="mlr10">
               </a>
             </div>
           </ng-template>

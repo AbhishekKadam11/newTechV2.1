@@ -4,6 +4,7 @@ import { DashboardService } from './dashboard.service'
 import { NgxCarousel } from 'ngx-carousel';
 // import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { StateService } from '../../../app/@core/data/state.service';
+import { GlobalShared } from '../../app.global';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -29,12 +30,11 @@ export class DashboardComponent implements OnInit {
   public carouselTileItems: Array<any>;
   public carouselTile: NgxCarousel;
 
-  constructor(private dashboardService: DashboardService,
+  constructor(private dashboardService: DashboardService, private globalShared: GlobalShared,
               private router: Router, protected stateService: StateService) {
 
     this.stateService.setSidebarState(this.stateService.sidebars[2]);
 
- //   this.spinnerService.show();
     this.dashboardService.dashboardProductList().subscribe((result) => {
       this.dashboardProducts = result;
       this.processor = result['processor'];
@@ -44,16 +44,14 @@ export class DashboardComponent implements OnInit {
       this.routers = result['router'];
     //  this.spinnerService.hide();
       this.isRunning = false;
-    //  console.log(result);
-    })
+       console.log(globalShared);
+    });
+
   }
 
   slides: any;
 
   ngOnInit() {
-
-
-
     this.carouselTile = {
       grid: {xs: 2, sm: 3, md: 3, lg: 5, all: 0},
       slide: 2,
