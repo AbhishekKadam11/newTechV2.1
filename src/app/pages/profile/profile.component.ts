@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.profileService.getProfileData().subscribe((result)=>{
+    this.profileService.getProfileData().subscribe((result)=> {
       this.profile = result.userData;
       console.log(result);
     })

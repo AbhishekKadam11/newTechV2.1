@@ -6,7 +6,7 @@ export class EqualPasswordsValidator {
 
     return (c:FormGroup) => {
 
-      return (c.controls && c.controls[firstField].value == c.controls[secondField].value) ? null : {
+      return (c.controls && c.controls[firstField].value === c.controls[secondField].value) ? null : {
         passwordsEqual: {
           valid: false
         }
