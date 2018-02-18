@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { StateService } from '../../../app/@core/data/state.service';
 import { ProductListService} from '../productlist/productlist.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({

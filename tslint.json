@@ -9,7 +9,7 @@
     "class-name": true,
     "comment-format": false,
     "curly": true,
-    "eofline": true,
+    "eofline": false,
     "forin": true,
     "import-blacklist": [
       true,
@@ -33,7 +33,7 @@
     "no-eval": true,
     "no-misused-new": true,
     "no-non-null-assertion": true,
-    "no-shadowed-variable": true,
+    "no-shadowed-variable": false,
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
@@ -43,13 +43,7 @@
     "no-use-before-declare": false,
     "no-var-keyword": false,
     "object-literal-sort-keys": false,
-    "one-line": [
-      true,
-      "check-open-brace",
-      "check-catch",
-      "check-else",
-      "check-whitespace"
-    ],
+    "one-line": false,
     "prefer-const": false,
     "quotemark": [
       true,
@@ -83,12 +77,7 @@
       "ngx",
       "camelCase"
     ],
-    "component-selector": [
-      true,
-      "element",
-      "ngx",
-      "kebab-case"
-    ],
+    "component-selector": false,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,

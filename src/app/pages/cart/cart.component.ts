@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { Subscription } from 'rxjs/Subscription';
 import { CartService } from './cart.service'
 
@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
       });
 
   }
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 }
