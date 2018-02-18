@@ -11,7 +11,6 @@ import { NgSimpleSelectModule } from 'ng5-simple-select';
   imports: [
     ThemeModule,
     ProductRoutingModule,
-    CKEditorModule,
     ImageUploadModule.forRoot(),
     NgxMyDatePickerModule.forRoot(),
     CKEditorModule,
