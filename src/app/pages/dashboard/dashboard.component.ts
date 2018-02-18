@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
       load: 2,
       touch: true,
       easing: 'ease',
-    }
+    };
 
     this.slides = [
       {
