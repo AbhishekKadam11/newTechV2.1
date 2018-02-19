@@ -6,7 +6,7 @@
 import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { NgModule,  } from '@angular/core';
 import { HttpModule, RequestOptions, XHRBackend } from '@angular/http';
 import { CoreModule } from './@core/core.module';
 
@@ -53,7 +53,6 @@ import { GlobalShared } from './app.global';
     },
     GlobalShared,
   ],
-  schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class AppModule {
 }
