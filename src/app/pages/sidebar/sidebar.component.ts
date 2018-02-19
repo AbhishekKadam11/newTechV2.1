@@ -17,14 +17,12 @@ export class SidebarComponent implements AfterViewInit, OnInit {
   menu: any;
   brands;
   checkboxValue = {};
-
   private subscription: Subscription;
   protected productState$: Subscription;
 
   constructor(private productListService: ProductListService) {
 
   }
-
 
   ngAfterViewInit() {
 
